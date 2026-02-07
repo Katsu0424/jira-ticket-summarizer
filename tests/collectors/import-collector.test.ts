@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
-import { collectImporters } from "./import-collector.js";
+import { collectImporters } from "../../src/collectors/import-collector.js";
 
 const execFileAsync = promisify(execFile);
 

@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { fetchSlackThread } from "./slack.js";
+import { fetchSlackThread } from "../../src/clients/slack.js";
 
 describe("fetchSlackThread", () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { describe, it, expect, beforeEach, afterEach } from "vitest";
-import { loadConfig } from "./config.js";
+import { loadConfig } from "../src/config.js";
 
 const FULL_ENV = {
   SLACK_TOKEN: "xoxp-test",

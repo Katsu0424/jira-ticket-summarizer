@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { validateSummary } from "./summarizer.js";
+import { validateSummary } from "../../src/ai/summarizer.js";
 
 const validSummary = {
   title: "テスト変更",

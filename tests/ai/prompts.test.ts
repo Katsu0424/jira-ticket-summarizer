@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import { buildImpactAnalysisPrompt, buildSummaryPrompt } from "./prompts.js";
+import { buildImpactAnalysisPrompt, buildSummaryPrompt } from "../../src/ai/prompts.js";
 
 describe("buildImpactAnalysisPrompt", () => {
   it("should include diff and changed files", () => {

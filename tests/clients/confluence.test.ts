@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { fetchConfluencePage } from "./confluence.js";
+import { fetchConfluencePage } from "../../src/clients/confluence.js";
 
 describe("fetchConfluencePage", () => {
   beforeEach(() => {

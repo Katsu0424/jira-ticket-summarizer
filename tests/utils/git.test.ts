@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { tmpdir } from "node:os";
 import { execFile } from "node:child_process";
 import { promisify } from "node:util";
-import { getDiff, getChangedFiles, getFileContent } from "./git.js";
+import { getDiff, getChangedFiles, getFileContent } from "../../src/utils/git.js";
 
 const execFileAsync = promisify(execFile);
 

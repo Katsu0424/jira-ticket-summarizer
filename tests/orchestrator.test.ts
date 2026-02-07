@@ -1,23 +1,23 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { run } from "./orchestrator.js";
-import type { Config } from "./config.js";
-import type { CliArgs } from "./types.js";
+import { run } from "../src/orchestrator.js";
+import type { Config } from "../src/config.js";
+import type { CliArgs } from "../src/types.js";
 
 // Mock all dependencies
-vi.mock("./clients/slack.js", () => ({
+vi.mock("../src/clients/slack.js", () => ({
   fetchSlackThread: vi.fn().mockResolvedValue({
     messages: [{ user: "U1", text: "Issue reported", ts: "123.456" }],
   }),
 }));
 
-vi.mock("./clients/confluence.js", () => ({
+vi.mock("../src/clients/confluence.js", () => ({
   fetchConfluencePage: vi.fn().mockResolvedValue({
     title: "Design Doc",
     body: "Design document content",
   }),
 }));
 
-vi.mock("./clients/github.js", () => ({
+vi.mock("../src/clients/github.js", () => ({
   fetchGitHubPr: vi.fn().mockResolvedValue({
     title: "Fix bug",
     description: "Bug fix",
@@ -28,19 +28,19 @@ vi.mock("./clients/github.js", () => ({
   }),
 }));
 
-vi.mock("./clients/jira.js", () => ({
+vi.mock("../src/clients/jira.js", () => ({
   addJiraComment: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock("./collectors/import-collector.js", () => ({
+vi.mock("../src/collectors/import-collector.js", () => ({
   collectImporters: vi.fn().mockResolvedValue([]),
 }));
 
-vi.mock("./ai/impact-analysis.js", () => ({
+vi.mock("../src/ai/impact-analysis.js", () => ({
   analyzeImpact: vi.fn().mockResolvedValue({ additionalFiles: [] }),
 }));
 
-vi.mock("./ai/summarizer.js", () => ({
+vi.mock("../src/ai/summarizer.js", () => ({
   generateSummary: vi.fn().mockResolvedValue({
     title: "テスト要約",
     background: "背景",
@@ -54,7 +54,7 @@ vi.mock("./ai/summarizer.js", () => ({
   }),
 }));
 
-vi.mock("./ai/claude-cli.js", () => ({
+vi.mock("../src/ai/claude-cli.js", () => ({
   setClaudeModel: vi.fn(),
 }));
 
@@ -75,7 +75,7 @@ describe("orchestrator", () => {
   });
 
   it("should run full pipeline with all sources", async () => {
-    const { addJiraComment } = await import("./clients/jira.js");
+    const { addJiraComment } = await import("../src/clients/jira.js");
 
     const args: CliArgs = {
       jira: "https://test.atlassian.net/browse/PROJ-123",
@@ -97,7 +97,7 @@ describe("orchestrator", () => {
   });
 
   it("should run with only jira flag", async () => {
-    const { generateSummary } = await import("./ai/summarizer.js");
+    const { generateSummary } = await import("../src/ai/summarizer.js");
 
     const args: CliArgs = {
       jira: "https://test.atlassian.net/browse/PROJ-456",
@@ -117,7 +117,7 @@ describe("orchestrator", () => {
   });
 
   it("should skip jira write in dry-run mode", async () => {
-    const { addJiraComment } = await import("./clients/jira.js");
+    const { addJiraComment } = await import("../src/clients/jira.js");
 
     const args: CliArgs = {
       jira: "https://test.atlassian.net/browse/PROJ-789",

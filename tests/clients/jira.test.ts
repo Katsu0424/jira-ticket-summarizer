@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { addJiraComment } from "./jira.js";
-import type { Summary } from "../types.js";
+import { addJiraComment } from "../../src/clients/jira.js";
+import type { Summary } from "../../src/types.js";
 
 const baseSummary: Summary = {
   title: "ログイン機能の不具合修正",

@@ -1,5 +1,5 @@
 import { describe, it, expect } from "vitest";
-import type { CliArgs } from "./types.js";
+import type { CliArgs } from "../src/types.js";
 
 // Test the parseArgs logic by extracting it as a pure function
 function parseArgs(argv: string[]): Partial<CliArgs> & { slack: string[]; confluence: string[]; github: string[]; dryRun: boolean } {

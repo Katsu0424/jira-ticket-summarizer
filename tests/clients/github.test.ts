@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { fetchGitHubPr } from "./github.js";
+import { fetchGitHubPr } from "../../src/clients/github.js";
 
 describe("fetchGitHubPr", () => {
   beforeEach(() => {

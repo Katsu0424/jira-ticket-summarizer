@@ -114,6 +114,11 @@ src/
   utils/
     url-parser.ts           # 各サービスURLのパース
     git.ts                  # Git操作（diff取得、ファイル読み取り）
+tests/                        # テスト（src/ と同じ構造）
+  ai/
+  clients/
+  collectors/
+  utils/
 ```
 
 ## ビルド・テストコマンド（セットアップ後）

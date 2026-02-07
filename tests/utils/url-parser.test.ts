@@ -4,7 +4,7 @@ import {
   parseConfluenceUrl,
   parseGitHubPrUrl,
   parseJiraUrl,
-} from "./url-parser.js";
+} from "../../src/utils/url-parser.js";
 
 describe("parseSlackUrl", () => {
   it("should parse a valid Slack URL", () => {
