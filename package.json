@@ -1,0 +1,22 @@
+{
+  "name": "jira-ticket-summarizer",
+  "version": "1.0.0",
+  "description": "Slack・Confluence・GitHub PRの情報をAIで要約し、Jiraチケットに自動書き込みするCLIツール",
+  "type": "module",
+  "bin": {
+    "summarize": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "vitest run"
+  },
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^25.2.1",
+    "dotenv": "^17.2.4",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
